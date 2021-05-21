@@ -1,27 +1,140 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #424242;
-  max-width: 960px;
-  padding: 16px;
+body {
+    font-family: "Roboto", sans-serif;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 30px;
+    background-color: rgb(189, 199, 206);
+  }
+  
+  img,
+  video {
+    padding: 10px;
+  }
+  
+  .btn.btn-info {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  button[data-action="load-more"].is-hidden {
+    display: none;
+  }
+  
+  button[data-action="load-more"] > .spinner-grow.is-hidden {
+    display: none;
+  }
+  
+  .error {
+    color: red;
+  }
+///////////////////////////////////////////////////////////////////
+
+.photo-card-item {
+    background-color: whitesmoke;
+    list-style: none;
+    width: calc(100% / 3 - 140px);
+    display: flex;
+    margin-top: 30px;
+    margin-left: 30px;
+    border: 1px solid #EEEEEE;
+    &:hover,
+    &:focus {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+            0px 4px 4px rgba(0, 0, 0, 0.06),
+            1px 4px 6px rgba(0, 0, 0, 0.16);
+    }
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #009688;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+.material-icons {
+    margin-right: 7px;
 }
 
-.example .background {
-  height: 240px;
-  // Путь к изображениям из SASS-файла всегда такой, как из папки css
-  background-image: url('../images/demo.jpg');
-  background-size: cover;
-  background-position: center;
+.stats-item {
+    display: flex;
+
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px;
+}
+
+.photo-card {
+    min-width: 100%;
+    width: calc((100% - 4 * 20px) / 3);
+}
+
+img {
+    width: 100%;
+    min-height: 400px;
+}
+
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: -30px;
+    margin-left: -30px;
+}
+
+
+////////////////////////////btn //////////
+
+.button-form {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: center;
+    border-radius: 4px;
+    color: #212121;
+    background-color: #1869d3;
+    border: 0px;
+    padding: 6px 22px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: 20px auto;
+  
+    &:hover,
+    &:focus {
+      background: rgb(33, 112, 172);
+      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+      0px 2px 2px rgba(0, 0, 0, 0.12);
+      color: #FFFFFF;
+    }
+  }
+
+  .search-form {
+      display: flex;
+      flex-direction: column;
+
+  }
+
+  ///////////////////input///////////////////////
+  
+  .js-input {
+    width: 30%;
+    height: 40px;
+    border: 5px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding-left: 42px;
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    padding: 10px;
+    font-size: 25px;
+    height: 50px;
+    display: block;
+    margin: 20px auto 0px auto;
+
+    &:hover,
+    &:focus {
+        border: 5px solid #1869d3;
+    }
 }
