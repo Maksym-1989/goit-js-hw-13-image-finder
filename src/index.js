@@ -27,10 +27,14 @@ function renderFirstMarkup(event) {
             error({ text: 'No matches found. Please try again'});
             return;
         }
+        if (data.hits.length < 12) {
+            ulRef.innerHTML = cardMarkup(data);
+            buttonMoreRef.classList.add('visually-hidden')
+        }
         if (inputValue === '') {
             error({ text: 'Please enter image title'});
         }
-        if (inputValue !== '') {
+        if (data.hits.length >= 12) {
             ulRef.innerHTML = cardMarkup(data);
             buttonMoreRef.classList.remove('visually-hidden')
         }
