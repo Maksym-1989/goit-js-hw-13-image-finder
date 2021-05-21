@@ -3,22 +3,16 @@ import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
 import '@pnotify/core/dist/BrightTheme.css';
 
-
 import { fetchDataImg } from './js/apiService';
 import cardMarkup from './handlebars/photo-card.hbs';
-import LoadMoreBtn from './js/load-more-btn'
 
 
 const inputRef = document.querySelector('.js-input');
 const submitButtonRef = document.querySelector('.button-form');
 const ulRef = document.querySelector('.gallery');
-const buttonMoreRef = document.querySelector('.btn');
+const buttonMoreRef = document.querySelector('.btn-load-more');
 
 
-const loadMoreBtn = new LoadMoreBtn({
-    selector: '[data-action="load-more"]',
-    hidden: true,
-});
 
 submitButtonRef.addEventListener('click', renderFirstMarkup);
 
@@ -30,16 +24,15 @@ function renderFirstMarkup(event) {
     const inputValue = inputRef.value.trim();
     fetchDataImg(inputValue, pageNamber).then(data => {
         if (data.hits.length === 0) {
-            loadMoreBtn.hide();
             error({ text: 'No matches found. Please try again'});
+            return;
         }
         if (inputValue === '') {
             error({ text: 'Please enter image title'});
         }
         if (inputValue !== '') {
-            ulRef.innerHTML = cardMarkup(data.hits);
-            loadMoreBtn.show();
-            loadMoreBtn.enable();
+            ulRef.innerHTML = cardMarkup(data);
+            buttonMoreRef.classList.remove('visually-hidden')
         }
     })
     .catch(err => {
@@ -55,7 +48,7 @@ function renderNextMarkup(event) {
     const inputValue = inputRef.value.trim();
     fetchDataImg(inputValue, pageNamber).then(data => {
         if (event.target) {
-            ulRef.insertAdjacentHTML('beforeend', cardMarkup(data.hits));
+            ulRef.insertAdjacentHTML('beforeend', cardMarkup(data));
         }
     })
     .catch(err => {
