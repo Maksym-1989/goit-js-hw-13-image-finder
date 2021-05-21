@@ -45,8 +45,9 @@ buttonMoreRef.addEventListener('click', renderNextMarkup);
 
 function renderNextMarkup(event) {
     pageNamber += 1;
+    const quantity = 6;
     const inputValue = inputRef.value.trim();
-    fetchDataImg(inputValue, pageNamber).then(data => {
+    fetchDataImg(inputValue, pageNamber, quantity).then(data => {
         if (event.target) {
             ulRef.insertAdjacentHTML('beforeend', cardMarkup(data));
             window.scrollTo({
