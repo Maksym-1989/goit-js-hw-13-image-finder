@@ -49,6 +49,10 @@ function renderNextMarkup(event) {
     fetchDataImg(inputValue, pageNamber).then(data => {
         if (event.target) {
             ulRef.insertAdjacentHTML('beforeend', cardMarkup(data));
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth',
+            });
         }
     })
     .catch(err => {
