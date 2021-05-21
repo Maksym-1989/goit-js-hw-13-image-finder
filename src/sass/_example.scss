@@ -105,6 +105,7 @@ body {
     justify-content: space-between;
     align-items: baseline;
     padding: 20px;
+
 }
 
 .photo-card {
@@ -187,7 +188,7 @@ img {
 @media screen and (max-width: 1000px) {
   .photo-card-item {
       display: flex;
-      max-width: 354px;
+      max-width: 500px;
       flex-basis: calc((100% - 60px) / 1);
       justify-content: center;
   }
@@ -195,4 +196,8 @@ img {
   .js-input {
     width: 80%;
   }
+  .stats {
+display: block;
+}
+
   }
